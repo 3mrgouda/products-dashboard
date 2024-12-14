@@ -1,5 +1,5 @@
 import { v4 as uuid } from "uuid";
-import { IProduct } from "../interfaces";
+import { IFormInput, IProduct } from "../interfaces";
 
 export const productList: IProduct[] = [
   {
@@ -148,5 +148,32 @@ export const productList: IProduct[] = [
       imageURL:
         "https://th.bing.com/th/id/R.4e7acec211a711b2669d91a771c0b4ca?rik=1ij3ke4tcnxHcQ&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2016%2f08%2fFree-Cars-Full-HD-Images-1080p.jpg&ehk=IN1J%2f8CvnnGiJh698L6AgrSF8jq83lL9DMc9lb6t3TA%3d&risl=&pid=ImgRaw&r=0",
     },
+  },
+];
+
+export const formInputsList: IFormInput[] = [
+  {
+    id: "title",
+    name: "title",
+    label: "Product Title",
+    type: "text",
+  },
+  {
+    id: "description",
+    name: "description",
+    label: "Product Description",
+    type: "text",
+  },
+  {
+    id: "imageURL",
+    name: "imageURL",
+    label: "Product Image URL",
+    type: "text",
+  },
+  {
+    id: "price",
+    name: "price",
+    label: "Product Price",
+    type: "text",
   },
 ];
