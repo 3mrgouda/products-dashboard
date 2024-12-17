@@ -5,6 +5,8 @@ import Modal from "./components/UI/Modal";
 import { formInputsList, productList } from "./data";
 import { ChangeEvent, FormEvent, useState } from "react";
 import { IProduct } from "./interfaces";
+import { productValidation } from "./validations";
+import ErrorMessage from "./components/ErrorMessage";
 
 const App = () => {
   const defaultProductObject = {
@@ -20,6 +22,12 @@ const App = () => {
   };
   // ** state
   const [product, setProduct] = useState<IProduct>(defaultProductObject);
+  const [errors, setErrors] = useState({
+    title: "",
+    description: "",
+    imageURL: "",
+    price: "",
+  });
   const [isOpen, setIsOpen] = useState(false);
 
   // ** Handlers
@@ -28,10 +36,30 @@ const App = () => {
   const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setProduct({ ...product, [name]: value });
+    setErrors({
+      ...errors,
+      [name]: "",
+    });
   };
 
   const submitHandler = (event: FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
+    const { title, description, imageURL, price } = product;
+    const errors = productValidation({
+      title,
+      description,
+      imageURL,
+      price,
+    });
+
+    const hasErrorMsg =
+      Object.values(errors).some((value) => value === "") &&
+      Object.values(errors).every((value) => value === "");
+    if (!hasErrorMsg) {
+      setErrors(errors);
+      return;
+    }
+    console.log("success");
   };
 
   const onCancel = () => {
@@ -59,6 +87,7 @@ const App = () => {
         name={input.name}
         onChange={(e) => onChangeHandler(e)}
       />
+      <ErrorMessage msg={errors[input.name]} />
     </div>
   ));
 
@@ -79,7 +108,9 @@ const App = () => {
             <Button className="bg-indigo-700 hover:bg-indigo-800">
               Submit
             </Button>
-            <Button className="bg-red-700 hover:bg-red-800 "  onClick={onCancel}>Cancel</Button>
+            <Button className="bg-red-700 hover:bg-red-800 " onClick={onCancel}>
+              Cancel
+            </Button>
           </div>
         </form>
       </Modal>
