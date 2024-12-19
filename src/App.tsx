@@ -8,6 +8,7 @@ import { IProduct } from "./interfaces";
 import { productValidation } from "./validations";
 import ErrorMessage from "./components/ErrorMessage";
 import CircleColors from "./components/CircleColors";
+import { v4 as uuid } from "uuid";
 
 const App = () => {
   const defaultProductObject = {
@@ -22,6 +23,7 @@ const App = () => {
     },
   };
   // ** state
+  const [products, setProducts] = useState<IProduct[]>(productList);
   const [product, setProduct] = useState<IProduct>(defaultProductObject);
   const [errors, setErrors] = useState({
     title: "",
@@ -61,7 +63,13 @@ const App = () => {
       setErrors(errors);
       return;
     }
-    console.log("success");
+    setProducts((prev) => [
+      { ...product, id: uuid(), colors: tempColors },
+      ...prev,
+    ]);
+    setProduct(defaultProductObject);
+    setTempColors([]);
+    close();
   };
 
   const onCancel = () => {
@@ -72,7 +80,7 @@ const App = () => {
   const renderProductList = () => {
     return (
       <>
-        {productList.map((product) => (
+        {products.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
       </>
@@ -93,7 +101,7 @@ const App = () => {
     </div>
   ));
 
-  const renderCircleColors = colors.map((color) => (
+  const renderProductColors = colors.map((color) => (
     <CircleColors
       key={color}
       color={color}
@@ -136,7 +144,7 @@ const App = () => {
 
           {/* colors container */}
           <div className="flex flex-wrap items-center space-x-1">
-            {renderCircleColors}
+            {renderProductColors}
           </div>
 
           <div className="flex items-center space-x-3">
