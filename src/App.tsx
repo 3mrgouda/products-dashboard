@@ -2,11 +2,12 @@ import ProductCard from "./components/ProductCard";
 import Button from "./components/UI/Button";
 import Input from "./components/UI/Input";
 import Modal from "./components/UI/Modal";
-import { formInputsList, productList } from "./data";
+import { colors, formInputsList, productList } from "./data";
 import { ChangeEvent, FormEvent, useState } from "react";
 import { IProduct } from "./interfaces";
 import { productValidation } from "./validations";
 import ErrorMessage from "./components/ErrorMessage";
+import CircleColors from "./components/CircleColors";
 
 const App = () => {
   const defaultProductObject = {
@@ -29,6 +30,7 @@ const App = () => {
     price: "",
   });
   const [isOpen, setIsOpen] = useState(false);
+  const [tempColors, setTempColors] = useState<string[]>([]);
 
   // ** Handlers
   const open = () => setIsOpen(true);
@@ -91,6 +93,21 @@ const App = () => {
     </div>
   ));
 
+  const renderCircleColors = colors.map((color) => (
+    <CircleColors
+      key={color}
+      color={color}
+      onClick={() => {
+        if (tempColors.includes(color)) {
+          // delete color in second click
+          setTempColors((prev) => prev.filter((item) => item !== color));
+          return;
+        }
+        setTempColors((prev) => [...prev, color]);
+      }}
+    />
+  ));
+
   return (
     <main className="container">
       <Button className="bg-indigo-700 hover:bg-indigo-800 my-4" onClick={open}>
@@ -103,6 +120,24 @@ const App = () => {
       <Modal isOpen={isOpen} close={close} title="Add New Product">
         <form className="space-y-3" onSubmit={submitHandler}>
           {renderFormInputList}
+
+          {/* sellected colors */}
+          <div className="flex flex-wrap items-center space-x-1 gap-y-1">
+            {tempColors.map((color) => (
+              <span
+                key={color}
+                className="rounded-md px-1 text-white text-sm"
+                style={{ backgroundColor: color }}
+              >
+                {color}
+              </span>
+            ))}
+          </div>
+
+          {/* colors container */}
+          <div className="flex flex-wrap items-center space-x-1">
+            {renderCircleColors}
+          </div>
 
           <div className="flex items-center space-x-3">
             <Button className="bg-indigo-700 hover:bg-indigo-800">
