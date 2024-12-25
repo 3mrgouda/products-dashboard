@@ -13,7 +13,7 @@ interface IProps {
 }
 
 const ProductCard = ({ product, setProductToEdit, openEditModal,index, setproductToEditIdx }: IProps) => {
-  const { title, description, imageURL, colors, price } = product;
+  const { title, description, imageURL, colors, price, category } = product;
 
   // Renders
   const renderProductColors = colors.map((color) => (
@@ -39,6 +39,12 @@ const ProductCard = ({ product, setProductToEdit, openEditModal,index, setproduc
       <p className="hidden lg:block text-gray-600 text-sm">
         {txtSlicer(description)}
       </p>
+
+      <div className="flex items-center space-x-2">
+        <img src={category.imageURL} className=" size-5 object-cover rounded-full" alt={category.name} />
+        <span>{category.name}</span>
+      </div>
+
 
       <div className="flex justify-between items-center">
         <span className="text-gray-800">${price}</span>

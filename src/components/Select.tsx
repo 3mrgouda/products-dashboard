@@ -10,14 +10,15 @@ import {
 import { ChevronUpDownIcon } from "@heroicons/react/16/solid";
 import { CheckIcon } from "@heroicons/react/20/solid";
 import { categories } from "../data";
-import { ICategory } from "../interfaces";
+import { ICategory} from "../interfaces";
 
 interface IProps {
-  selected: ICategory;
+  selected: {name: string, imageURL: string};
   setSelected: (category: ICategory) => void;
 }
 const Select = ({ selected, setSelected }: IProps) => {
   return (
+    // onchange take value parameter directly
     <Listbox value={selected} onChange={setSelected}>
       <Label className="block text-sm/6 font-medium text-gray-900">
         Category

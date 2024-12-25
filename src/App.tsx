@@ -25,8 +25,8 @@ const App = () => {
     price: "",
     colors: [],
     category: {
-      name: "",
-      imageURL: "",
+      name: categories[0].name,
+      imageURL: categories[0].imageURL,
     },
   };
   // ** state
@@ -44,7 +44,6 @@ const App = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isOpenEditModal, setIsOpenEditModal] = useState(false);
   const [tempColors, setTempColors] = useState<string[]>([]);
-  const [selectedCategory, setSelectedCategory] = useState(categories[0]);
 
   // ** Handlers
   const open = () => setIsOpen(true);
@@ -70,7 +69,7 @@ const App = () => {
 
   const submitHandler = (event: FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
-    const { title, description, imageURL, price } = product;
+    const { title, description, imageURL, price, category } = product;
     const errors = productValidation({
       title,
       description,
@@ -217,7 +216,6 @@ const App = () => {
       </div>
     );
   };
-
   return (
     <main className="container">
       <Button className="bg-indigo-700 hover:bg-indigo-800 my-4" onClick={open}>
@@ -231,10 +229,10 @@ const App = () => {
       <Modal isOpen={isOpen} close={close} title="Add New Product">
         <form className="space-y-3" onSubmit={submitHandler}>
           {renderFormInputList}
-
           <Select
-            selected={selectedCategory}
-            setSelected={setSelectedCategory}
+            selected={product.category}
+            // value  is wrote direct becouse of using ready select component.
+            setSelected={(value) => setProduct({ ...product, category: value })}
           />
 
           {/* sellected colors */}
@@ -285,6 +283,14 @@ const App = () => {
             "imageURL"
           )}
           {renderProductEditwithMsgError("price", "Product Price", "price")}
+
+          <Select
+            selected={productToEdit.category}
+            // value  is wrote direct becouse of using ready select component.
+            setSelected={(value) =>
+              setProductToEdit({ ...productToEdit, category: value })
+            }
+          />
 
           {/* sellected colors */}
           <div className="flex flex-wrap items-center space-x-1 gap-y-1">
