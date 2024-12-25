@@ -1,5 +1,5 @@
 import { v4 as uuid } from "uuid";
-import { IFormInput, IProduct } from "../interfaces";
+import { ICategory, IFormInput, IProduct } from "../interfaces";
 
 export const productList: IProduct[] = [
   {
@@ -184,4 +184,25 @@ export const colors: string[] = [
   "#FF4500",
   "#2E8B57",
   "#1E90FF",
+];
+
+export const categories: ICategory[]= [
+  { 
+    id: uuid(),
+    name: "T-Shirts",
+    imageURL:
+      "https://th.bing.com/th/id/R.6c3ddd4f609acc5e3fff3e13255cfc15?rik=nMtuon3w6BIpiw&riu=http%3a%2f%2finikweb.com%2fwp-content%2fuploads%2f2015%2f02%2ft473kellygreen.jpg&ehk=ngEG5J4NY4mngHySwtGScfJOpm%2bFsWS9P0TPNj15Qww%3d&risl=&pid=ImgRaw&r=0",
+  },
+  {
+    id: uuid(),
+    name: "Hoodies",
+    imageURL:
+      "https://th.bing.com/th/id/R.bc3c1690e4eb8fde44e8860cf9878fa4?rik=QrxRwoGzYGwcNw&riu=http%3a%2f%2fclipartix.com%2fwp-content%2fuploads%2f2016%2f05%2fShirt-shirt-clip-art-designs-free-clipart-images-clipartcow.png&ehk=hADKju7ApeMpde%2fqSOPRTcflBpR1tmwAmJSaP278zWw%3d&risl=&pid=ImgRaw&r=0",
+  },
+  {
+    id: uuid(),
+    name: "Stickers",
+    imageURL:
+      "https://th.bing.com/th/id/OIP.FdxnJ3bW7_kdKOtKEuPeswHaIE?rs=1&pid=ImgDetMain",
+  },
 ];

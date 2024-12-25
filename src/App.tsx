@@ -2,13 +2,20 @@ import ProductCard from "./components/ProductCard";
 import Button from "./components/UI/Button";
 import Input from "./components/UI/Input";
 import Modal from "./components/UI/Modal";
-import { colors, formInputsList, productList } from "./data";
+import {
+  categories,
+  colors as colorsList,
+  formInputsList,
+  productList,
+} from "./data";
 import { ChangeEvent, FormEvent, useState } from "react";
 import { IProduct } from "./interfaces";
 import { productValidation } from "./validations";
 import ErrorMessage from "./components/ErrorMessage";
 import CircleColors from "./components/CircleColors";
 import { v4 as uuid } from "uuid";
+import Select from "./components/Select";
+import { TproductNames } from "./types";
 
 const App = () => {
   const defaultProductObject = {
@@ -25,6 +32,9 @@ const App = () => {
   // ** state
   const [products, setProducts] = useState<IProduct[]>(productList);
   const [product, setProduct] = useState<IProduct>(defaultProductObject);
+  const [productToEdit, setProductToEdit] =
+    useState<IProduct>(defaultProductObject);
+  const [productToEditIdx, setProductToEditIdx] = useState<number>(0);
   const [errors, setErrors] = useState({
     title: "",
     description: "",
@@ -32,14 +42,26 @@ const App = () => {
     price: "",
   });
   const [isOpen, setIsOpen] = useState(false);
+  const [isOpenEditModal, setIsOpenEditModal] = useState(false);
   const [tempColors, setTempColors] = useState<string[]>([]);
+  const [selectedCategory, setSelectedCategory] = useState(categories[0]);
 
   // ** Handlers
   const open = () => setIsOpen(true);
   const close = () => setIsOpen(false);
+  const openEditModal = () => setIsOpenEditModal(true);
+  const closeEditModal = () => setIsOpenEditModal(false);
   const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setProduct({ ...product, [name]: value });
+    setErrors({
+      ...errors,
+      [name]: "",
+    });
+  };
+  const onChangeEditHandler = (e: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setProductToEdit({ ...productToEdit, [name]: value });
     setErrors({
       ...errors,
       [name]: "",
@@ -72,6 +94,33 @@ const App = () => {
     close();
   };
 
+  const submitEditHandler = (event: FormEvent<HTMLFormElement>): void => {
+    event.preventDefault();
+    const { title, description, imageURL, price } = productToEdit;
+    const errors = productValidation({
+      title,
+      description,
+      imageURL,
+      price,
+    });
+
+    const hasErrorMsg =
+      Object.values(errors).some((value) => value === "") &&
+      Object.values(errors).every((value) => value === "");
+    if (!hasErrorMsg) {
+      setErrors(errors);
+      return;
+    }
+    // make a copy of the products array to avoid bugs if you edit directly the original array
+    const updatedProducts = [...products];
+    updatedProducts[productToEditIdx] = productToEdit;
+    setProducts(updatedProducts);
+
+    setProductToEdit(defaultProductObject);
+    setTempColors([]);
+    closeEditModal();
+  };
+
   const onCancel = () => {
     setProduct(defaultProductObject);
     close();
@@ -80,8 +129,15 @@ const App = () => {
   const renderProductList = () => {
     return (
       <>
-        {products.map((product) => (
-          <ProductCard key={product.id} product={product} />
+        {products.map((product, index) => (
+          <ProductCard
+            key={product.id}
+            product={product}
+            setProductToEdit={setProductToEdit}
+            openEditModal={openEditModal}
+            index={index}
+            setproductToEditIdx={setProductToEditIdx}
+          />
         ))}
       </>
     );
@@ -101,7 +157,7 @@ const App = () => {
     </div>
   ));
 
-  const renderProductColors = colors.map((color) => (
+  const renderProductColors = colorsList.map((color) => (
     <CircleColors
       key={color}
       color={color}
@@ -116,6 +172,30 @@ const App = () => {
     />
   ));
 
+  const renderProductEditwithMsgError = (
+    id: string,
+    label: string,
+    name: TproductNames
+  ) => {
+    return (
+      <div className="flex flex-col space-y-2">
+        <label
+          htmlFor={id}
+          className="text-sm font-medium text-gray-700 mb-[2px]"
+        >
+          {label}
+        </label>
+        <Input
+          type="text"
+          value={productToEdit[name]}
+          name={name}
+          onChange={(e) => onChangeEditHandler(e)}
+        />
+        <ErrorMessage msg={errors[name]} />
+      </div>
+    );
+  };
+
   return (
     <main className="container">
       <Button className="bg-indigo-700 hover:bg-indigo-800 my-4" onClick={open}>
@@ -125,9 +205,15 @@ const App = () => {
         {renderProductList()}
       </div>
 
+      {/*Add new product modal */}
       <Modal isOpen={isOpen} close={close} title="Add New Product">
         <form className="space-y-3" onSubmit={submitHandler}>
           {renderFormInputList}
+
+          <Select
+            selected={selectedCategory}
+            setSelected={setSelectedCategory}
+          />
 
           {/* sellected colors */}
           <div className="flex flex-wrap items-center space-x-1 gap-y-1">
@@ -150,6 +236,36 @@ const App = () => {
           <div className="flex items-center space-x-3">
             <Button className="bg-indigo-700 hover:bg-indigo-800">
               Submit
+            </Button>
+            <Button className="bg-red-700 hover:bg-red-800 " onClick={onCancel}>
+              Cancel
+            </Button>
+          </div>
+        </form>
+      </Modal>
+
+      {/*Edit product modal */}
+      <Modal
+        isOpen={isOpenEditModal}
+        close={closeEditModal}
+        title="Edit This Product"
+      >
+        <form className="space-y-3" onSubmit={submitEditHandler}>
+          {renderProductEditwithMsgError("title", "Product Title", "title")}
+          {renderProductEditwithMsgError(
+            "description",
+            "Product description",
+            "description"
+          )}
+          {renderProductEditwithMsgError(
+            "imageURL",
+            "Product Image URL",
+            "imageURL"
+          )}
+          {renderProductEditwithMsgError("price", "Product Price", "price")}
+          <div className="flex items-center space-x-3">
+            <Button className="bg-indigo-700 hover:bg-indigo-800">
+              Update
             </Button>
             <Button className="bg-red-700 hover:bg-red-800 " onClick={onCancel}>
               Cancel

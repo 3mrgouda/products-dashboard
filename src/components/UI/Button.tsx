@@ -7,7 +7,7 @@ interface IProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 const Button = ({ children, className, ...rest }: IProps) => {
   return (
     <button
-      className={`${className} w-full rounded-md p-2 text-white`}
+      className={`${className} w-full rounded-md p-1 text-white`}
       {...rest}
     >
       {children}
