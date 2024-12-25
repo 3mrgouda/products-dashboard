@@ -13,7 +13,7 @@ interface IProps {
 }
 
 const ProductCard = ({ product, setProductToEdit, openEditModal,index, setproductToEditIdx }: IProps) => {
-  const { title, description, imageURL, colors } = product;
+  const { title, description, imageURL, colors, price } = product;
 
   // Renders
   const renderProductColors = colors.map((color) => (
@@ -31,9 +31,9 @@ const ProductCard = ({ product, setProductToEdit, openEditModal,index, setproduc
       <Image
         imageURL={imageURL}
         alt="product-name"
-        className="rounded-md w-full h-40 object-cover"
+        className="rounded-md w-full h-60 md:h-40 object-cover"
       />
-      <h4 className="text-xl text-nowrap font-semibold mx-auto lg:text-base lg:font-normal ">
+      <h4 className=" text-nowrap mx-auto">
         {title}
       </h4>
       <p className="hidden lg:block text-gray-600 text-sm">
@@ -41,7 +41,7 @@ const ProductCard = ({ product, setProductToEdit, openEditModal,index, setproduc
       </p>
 
       <div className="flex justify-between items-center">
-        <span className="text-gray-800">$500,000</span>
+        <span className="text-gray-800">${price}</span>
 
         <div className="flex flex-wrap items-center space-x-1">
           {renderProductColors}

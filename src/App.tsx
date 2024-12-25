@@ -113,7 +113,10 @@ const App = () => {
     }
     // make a copy of the products array to avoid bugs if you edit directly the original array
     const updatedProducts = [...products];
-    updatedProducts[productToEditIdx] = productToEdit;
+    updatedProducts[productToEditIdx] = {
+      ...productToEdit,
+      colors: tempColors.concat(productToEdit.colors),
+    };
     setProducts(updatedProducts);
 
     setProductToEdit(defaultProductObject);
@@ -168,6 +171,25 @@ const App = () => {
           return;
         }
         setTempColors((prev) => [...prev, color]);
+      }}
+    />
+  ));
+  const renderProductToEditColors = colorsList.map((color) => (
+    <CircleColors
+      key={color}
+      color={color}
+      onClick={() => {
+        if (productToEdit.colors.includes(color)) {
+          setProductToEdit({
+            ...productToEdit,
+            colors: productToEdit.colors.filter((item) => item !== color),
+          });
+          return;
+        }
+        setProductToEdit({
+          ...productToEdit,
+          colors: [...productToEdit.colors, color],
+        });
       }}
     />
   ));
@@ -263,6 +285,25 @@ const App = () => {
             "imageURL"
           )}
           {renderProductEditwithMsgError("price", "Product Price", "price")}
+
+          {/* sellected colors */}
+          <div className="flex flex-wrap items-center space-x-1 gap-y-1">
+            {tempColors.concat(productToEdit.colors).map((color) => (
+              <span
+                key={color}
+                className="rounded-md px-1 text-white text-sm"
+                style={{ backgroundColor: color }}
+              >
+                {color}
+              </span>
+            ))}
+          </div>
+
+          {/* colors container */}
+          <div className="flex flex-wrap items-center space-x-1">
+            {renderProductToEditColors}
+          </div>
+
           <div className="flex items-center space-x-3">
             <Button className="bg-indigo-700 hover:bg-indigo-800">
               Update
