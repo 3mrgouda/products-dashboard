@@ -10,10 +10,10 @@ import {
 import { ChevronUpDownIcon } from "@heroicons/react/16/solid";
 import { CheckIcon } from "@heroicons/react/20/solid";
 import { categories } from "../data";
-import { ICategory} from "../interfaces";
+import { ICategory } from "../interfaces";
 
 interface IProps {
-  selected: {name: string, imageURL: string};
+  selected: { name: string; imageURL: string };
   setSelected: (category: ICategory) => void;
 }
 const Select = ({ selected, setSelected }: IProps) => {

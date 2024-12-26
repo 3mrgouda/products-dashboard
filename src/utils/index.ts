@@ -8,3 +8,7 @@ export function txtSlicer(txt: string, max: number = 30) {
   if (txt.length >= max) return `${txt.slice(0, max)} . . .`;
   return txt;
 }
+
+export function enhancePriceNumber(price: string) {
+  return price.replace(/\d{3}/g, ",");
+}

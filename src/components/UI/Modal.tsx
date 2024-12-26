@@ -1,4 +1,4 @@
-import { Dialog, DialogPanel, DialogTitle, FocusTrap } from "@headlessui/react";
+import { Dialog, DialogPanel, FocusTrap } from "@headlessui/react";
 import { ReactNode } from "react";
 
 interface IProps {
@@ -7,7 +7,7 @@ interface IProps {
   title?: string;
   children: ReactNode;
 }
-const Modal = ({ isOpen, close, title, children }: IProps) => {
+const Modal = ({ title, isOpen, close, children }: IProps) => {
   return (
     <>
       <Dialog
@@ -17,22 +17,18 @@ const Modal = ({ isOpen, close, title, children }: IProps) => {
         onClose={close}
         __demoMode
       >
-        <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
+        <div
+          className="fixed inset-0 z-10 w-screen overflow-y-auto bg-white/5 backdrop-blur-sm"
+          aria-hidden="true"
+        >
           <div className="flex min-h-full items-center justify-center p-4">
             <DialogPanel
               transition
-              className="w-full max-w-md rounded-xl bg-white border shadow-md p-6 backdrop-blur-2xl 
-              duration-300 ease-out data-[closed]:transform-[scale(95%)] data-[closed]:opacity-0"
+              className="data-[closed]:transform-[scale(95%)] w-full max-w-md rounded-xl border bg-white p-6 shadow-md backdrop-blur-2xl duration-300 ease-out data-[closed]:opacity-0"
             >
               {title && (
-                <DialogTitle
-                  as="h3"
-                  className="text-base/7 font-medium text-center"
-                >
-                  {title}
-                </DialogTitle>
+                <Dialog.Title className="text-2xl">{title}</Dialog.Title>
               )}
-
               <div className="mt-4">
                 <FocusTrap>{children}</FocusTrap>
               </div>

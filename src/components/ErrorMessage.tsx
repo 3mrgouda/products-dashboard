@@ -3,7 +3,7 @@ interface IProps {
 }
 const ErrorMessage = ({ msg }: IProps) => {
   return msg ? (
-    <span className="text-red-700 block font-semibold text-sm">{msg}</span>
+    <span className="block text-sm font-semibold text-red-700">{msg}</span>
   ) : null;
 };
 

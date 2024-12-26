@@ -6,7 +6,7 @@ const CircleColors = ({ color = "black", ...rest }: IProps) => {
   return (
     //using inline style because of tailwind running in build time while react running in run time
     <span
-      className={`block w-5 h-5  rounded-full cursor-pointer`}
+      className={`block h-5 w-5 cursor-pointer rounded-full`}
       style={{ backgroundColor: color }}
       {...rest}
     />

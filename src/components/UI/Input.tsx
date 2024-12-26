@@ -3,8 +3,7 @@ interface IProps extends InputHTMLAttributes<HTMLInputElement> {}
 const Input = ({ ...rest }: IProps) => {
   return (
     <input
-      className="border-[1px] border-gray-300 rounded-md 
-      focus:outline-none p-2 text-md focus:border-indigo-500 focus:ring-indigo-500"
+      className="text-md rounded-md border-[1px] border-gray-300 p-2 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500"
       {...rest}
     />
   );

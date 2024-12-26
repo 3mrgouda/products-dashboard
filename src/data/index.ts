@@ -4,182 +4,182 @@ import { ICategory, IFormInput, IProduct } from "../interfaces";
 export const productList: IProduct[] = [
   {
     id: uuid(),
-    title: "2022 Genesis GV70: Nominee",
+    title: "Tesla Model S",
+    price: "80000",
     description:
-      "As luxury brands go, South Korea's Genesis is still in its infancy, having sold its first cars (as an independent marque) only in 2015.",
+      "A sleek and powerful electric sedan offering exceptional performance and range.",
     imageURL:
-      "https://th.bing.com/th/id/R.4e7acec211a711b2669d91a771c0b4ca?rik=1ij3ke4tcnxHcQ&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2016%2f08%2fFree-Cars-Full-HD-Images-1080p.jpg&ehk=IN1J%2f8CvnnGiJh698L6AgrSF8jq83lL9DMc9lb6t3TA%3d&risl=&pid=ImgRaw&r=0",
-    price: "500000",
-    colors: ["#8B0000", "#2F4F4F"],
+      "https://th.bing.com/th/id/R.869dfe65c1df464d9c751f121b0ea0fb?rik=H8sYLC7afZ6nIQ&pid=ImgRaw&r=0",
+    colors: ["#8B0000", "#2F4F4F", "#FF4500"],
     category: {
-      name: "Cars",
+      name: "Electric",
       imageURL:
-        "https://th.bing.com/th/id/R.4e7acec211a711b2669d91a771c0b4ca?rik=1ij3ke4tcnxHcQ&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2016%2f08%2fFree-Cars-Full-HD-Images-1080p.jpg&ehk=IN1J%2f8CvnnGiJh698L6AgrSF8jq83lL9DMc9lb6t3TA%3d&risl=&pid=ImgRaw&r=0",
+        "https://th.bing.com/th/id/R.869dfe65c1df464d9c751f121b0ea0fb?rik=H8sYLC7afZ6nIQ&pid=ImgRaw&r=0",
     },
   },
   {
     id: uuid(),
-    title: "2023 Tesla Model S",
+    title: "Porsche 911",
+    price: "120000",
     description:
-      "An all-electric luxury sedan, offering industry-leading range and incredible acceleration.",
+      "An iconic sports car known for its dynamic performance and luxurious design.",
+    colors: ["#8B0000", "#2F4F4F", "#FF4500"],
     imageURL:
-      "https://th.bing.com/th/id/R.4e7acec211a711b2669d91a771c0b4ca?rik=1ij3ke4tcnxHcQ&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2016%2f08%2fFree-Cars-Full-HD-Images-1080p.jpg&ehk=IN1J%2f8CvnnGiJh698L6AgrSF8jq83lL9DMc9lb6t3TA%3d&risl=&pid=ImgRaw&r=0",
-    price: "900000",
-    colors: ["#8B0000", "#2F4F4F"],
+      "https://static3.hotcarsimages.com/wordpress/wp-content/uploads/2019/07/feature-luxury-sport-car.jpg",
     category: {
-      name: "Electric Cars",
+      name: "Sports",
       imageURL:
-        "https://th.bing.com/th/id/R.4e7acec211a711b2669d91a771c0b4ca?rik=1ij3ke4tcnxHcQ&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2016%2f08%2fFree-Cars-Full-HD-Images-1080p.jpg&ehk=IN1J%2f8CvnnGiJh698L6AgrSF8jq83lL9DMc9lb6t3TA%3d&risl=&pid=ImgRaw&r=0",
+        "https://static3.hotcarsimages.com/wordpress/wp-content/uploads/2019/07/feature-luxury-sport-car.jpg",
     },
   },
   {
     id: uuid(),
-    title: "2023 Toyota Supra GR",
+    title: "Ford Mustang",
+    price: "60000",
     description:
-      "A sports car combining modern performance with a classic design.",
+      "A classic American muscle car with a rich history of speed and style.",
     imageURL:
-      "https://th.bing.com/th/id/R.4e7acec211a711b2669d91a771c0b4ca?rik=1ij3ke4tcnxHcQ&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2016%2f08%2fFree-Cars-Full-HD-Images-1080p.jpg&ehk=IN1J%2f8CvnnGiJh698L6AgrSF8jq83lL9DMc9lb6t3TA%3d&risl=&pid=ImgRaw&r=0",
-    price: "700000",
-    colors: ["#FF4500", "#2E8B57"],
+      "https://th.bing.com/th/id/R.ddc06286562c6898c1485427eb1cccf1?rik=5UbP7Xj2zNCYWg&pid=ImgRaw&r=0",
+    colors: ["#8B0000", "#2F4F4F", "#1E90FF"],
     category: {
-      name: "Sports Cars",
+      name: "Classic",
       imageURL:
-        "https://th.bing.com/th/id/R.4e7acec211a711b2669d91a771c0b4ca?rik=1ij3ke4tcnxHcQ&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2016%2f08%2fFree-Cars-Full-HD-Images-1080p.jpg&ehk=IN1J%2f8CvnnGiJh698L6AgrSF8jq83lL9DMc9lb6t3TA%3d&risl=&pid=ImgRaw&r=0",
+        "https://th.bing.com/th/id/R.ddc06286562c6898c1485427eb1cccf1?rik=5UbP7Xj2zNCYWg&pid=ImgRaw&r=0",
     },
   },
   {
     id: uuid(),
-    title: "2022 Genesis GV70: Nominee",
+    title: "Audi e-tron",
+    price: "75000",
     description:
-      "As luxury brands go, South Korea's Genesis is still in its infancy, having sold its first cars (as an independent marque) only in 2015.",
+      "A premium electric SUV that combines advanced technology with refined comfort.",
+    colors: ["#8B0000", "#2F4F4F", "#FF4500"],
     imageURL:
-      "https://th.bing.com/th/id/R.4e7acec211a711b2669d91a771c0b4ca?rik=1ij3ke4tcnxHcQ&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2016%2f08%2fFree-Cars-Full-HD-Images-1080p.jpg&ehk=IN1J%2f8CvnnGiJh698L6AgrSF8jq83lL9DMc9lb6t3TA%3d&risl=&pid=ImgRaw&r=0",
-    price: "500000",
-    colors: ["#8B0000", "#2F4F4F"],
+      "https://th.bing.com/th/id/R.869dfe65c1df464d9c751f121b0ea0fb?rik=H8sYLC7afZ6nIQ&pid=ImgRaw&r=0",
     category: {
-      name: "Cars",
+      name: "Electric",
       imageURL:
-        "https://th.bing.com/th/id/R.4e7acec211a711b2669d91a771c0b4ca?rik=1ij3ke4tcnxHcQ&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2016%2f08%2fFree-Cars-Full-HD-Images-1080p.jpg&ehk=IN1J%2f8CvnnGiJh698L6AgrSF8jq83lL9DMc9lb6t3TA%3d&risl=&pid=ImgRaw&r=0",
+        "https://th.bing.com/th/id/R.869dfe65c1df464d9c751f121b0ea0fb?rik=H8sYLC7afZ6nIQ&pid=ImgRaw&r=0",
     },
   },
   {
     id: uuid(),
-    title: "2023 Tesla Model S",
+    title: "Lamborghini Huracan",
+    price: "200000",
     description:
-      "An all-electric luxury sedan, offering industry-leading range and incredible acceleration.",
+      "A breathtaking supercar with jaw-dropping speed and unmatched design.",
+    colors: ["#8B0000", "#2F4F4F", "#2E8B57"],
     imageURL:
-      "https://th.bing.com/th/id/R.4e7acec211a711b2669d91a771c0b4ca?rik=1ij3ke4tcnxHcQ&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2016%2f08%2fFree-Cars-Full-HD-Images-1080p.jpg&ehk=IN1J%2f8CvnnGiJh698L6AgrSF8jq83lL9DMc9lb6t3TA%3d&risl=&pid=ImgRaw&r=0",
-    price: "900000",
-    colors: ["#8B0000", "#2F4F4F"],
+      "https://static3.hotcarsimages.com/wordpress/wp-content/uploads/2019/07/feature-luxury-sport-car.jpg",
     category: {
-      name: "Electric Cars",
+      name: "Sports",
       imageURL:
-        "https://th.bing.com/th/id/R.4e7acec211a711b2669d91a771c0b4ca?rik=1ij3ke4tcnxHcQ&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2016%2f08%2fFree-Cars-Full-HD-Images-1080p.jpg&ehk=IN1J%2f8CvnnGiJh698L6AgrSF8jq83lL9DMc9lb6t3TA%3d&risl=&pid=ImgRaw&r=0",
+        "https://static3.hotcarsimages.com/wordpress/wp-content/uploads/2019/07/feature-luxury-sport-car.jpg",
     },
   },
   {
     id: uuid(),
-    title: "2023 Toyota Supra GR",
+    title: "Chevrolet Corvette",
+    price: "70000",
     description:
-      "A sports car combining modern performance with a classic design.",
+      "A modern classic offering a perfect balance of performance, style, and value.",
+    colors: ["#8B0000", "#2F4F4F", "#2E8B57"],
     imageURL:
-      "https://th.bing.com/th/id/R.4e7acec211a711b2669d91a771c0b4ca?rik=1ij3ke4tcnxHcQ&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2016%2f08%2fFree-Cars-Full-HD-Images-1080p.jpg&ehk=IN1J%2f8CvnnGiJh698L6AgrSF8jq83lL9DMc9lb6t3TA%3d&risl=&pid=ImgRaw&r=0",
-    price: "700000",
-    colors: ["#FF4500", "#2E8B57"],
+      "https://th.bing.com/th/id/R.ddc06286562c6898c1485427eb1cccf1?rik=5UbP7Xj2zNCYWg&pid=ImgRaw&r=0",
     category: {
-      name: "Sports Cars",
+      name: "Classic",
       imageURL:
-        "https://th.bing.com/th/id/R.4e7acec211a711b2669d91a771c0b4ca?rik=1ij3ke4tcnxHcQ&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2016%2f08%2fFree-Cars-Full-HD-Images-1080p.jpg&ehk=IN1J%2f8CvnnGiJh698L6AgrSF8jq83lL9DMc9lb6t3TA%3d&risl=&pid=ImgRaw&r=0",
+        "https://th.bing.com/th/id/R.ddc06286562c6898c1485427eb1cccf1?rik=5UbP7Xj2zNCYWg&pid=ImgRaw&r=0",
     },
   },
   {
     id: uuid(),
-    title: "2022 Genesis GV70: Nominee",
+    title: "Rivian R1T",
+    price: "70000",
     description:
-      "As luxury brands go, South Korea's Genesis is still in its infancy, having sold its first cars (as an independent marque) only in 2015.",
+      "An innovative electric truck built for off-road adventures and sustainable utility.",
+    colors: ["#8B0000", "#2F4F4F", "#FF4500"],
     imageURL:
-      "https://th.bing.com/th/id/R.4e7acec211a711b2669d91a771c0b4ca?rik=1ij3ke4tcnxHcQ&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2016%2f08%2fFree-Cars-Full-HD-Images-1080p.jpg&ehk=IN1J%2f8CvnnGiJh698L6AgrSF8jq83lL9DMc9lb6t3TA%3d&risl=&pid=ImgRaw&r=0",
-    price: "500000",
-    colors: ["#8B0000", "#2F4F4F"],
+      "https://th.bing.com/th/id/R.869dfe65c1df464d9c751f121b0ea0fb?rik=H8sYLC7afZ6nIQ&pid=ImgRaw&r=0",
     category: {
-      name: "Cars",
+      name: "Electric",
       imageURL:
-        "https://th.bing.com/th/id/R.4e7acec211a711b2669d91a771c0b4ca?rik=1ij3ke4tcnxHcQ&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2016%2f08%2fFree-Cars-Full-HD-Images-1080p.jpg&ehk=IN1J%2f8CvnnGiJh698L6AgrSF8jq83lL9DMc9lb6t3TA%3d&risl=&pid=ImgRaw&r=0",
+        "https://th.bing.com/th/id/R.869dfe65c1df464d9c751f121b0ea0fb?rik=H8sYLC7afZ6nIQ&pid=ImgRaw&r=0",
     },
   },
   {
     id: uuid(),
-    title: "2023 Tesla Model S",
+    title: "Ferrari SF90",
+    price: "300000",
     description:
-      "An all-electric luxury sedan, offering industry-leading range and incredible acceleration.",
+      "A hybrid supercar with cutting-edge technology and exhilarating performance.",
+    colors: ["#8B0000", "#2F4F4F", "#FF4500"],
     imageURL:
-      "https://th.bing.com/th/id/R.4e7acec211a711b2669d91a771c0b4ca?rik=1ij3ke4tcnxHcQ&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2016%2f08%2fFree-Cars-Full-HD-Images-1080p.jpg&ehk=IN1J%2f8CvnnGiJh698L6AgrSF8jq83lL9DMc9lb6t3TA%3d&risl=&pid=ImgRaw&r=0",
-    price: "900000",
-    colors: ["#8B0000", "#2F4F4F"],
+      "https://static3.hotcarsimages.com/wordpress/wp-content/uploads/2019/07/feature-luxury-sport-car.jpg",
     category: {
-      name: "Electric Cars",
+      name: "Sports",
       imageURL:
-        "https://th.bing.com/th/id/R.4e7acec211a711b2669d91a771c0b4ca?rik=1ij3ke4tcnxHcQ&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2016%2f08%2fFree-Cars-Full-HD-Images-1080p.jpg&ehk=IN1J%2f8CvnnGiJh698L6AgrSF8jq83lL9DMc9lb6t3TA%3d&risl=&pid=ImgRaw&r=0",
+        "https://static3.hotcarsimages.com/wordpress/wp-content/uploads/2019/07/feature-luxury-sport-car.jpg",
     },
   },
   {
     id: uuid(),
-    title: "2023 Toyota Supra GR",
+    title: "Dodge Charger",
+    price: "55000",
     description:
-      "A sports car combining modern performance with a classic design.",
+      "A bold and powerful muscle car with an aggressive design and modern features.",
+    colors: ["#8B0000", "#2F4F4F", "#1E90FF"],
     imageURL:
-      "https://th.bing.com/th/id/R.4e7acec211a711b2669d91a771c0b4ca?rik=1ij3ke4tcnxHcQ&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2016%2f08%2fFree-Cars-Full-HD-Images-1080p.jpg&ehk=IN1J%2f8CvnnGiJh698L6AgrSF8jq83lL9DMc9lb6t3TA%3d&risl=&pid=ImgRaw&r=0",
-    price: "700000",
-    colors: ["#FF4500", "#2E8B57"],
+      "https://th.bing.com/th/id/R.ddc06286562c6898c1485427eb1cccf1?rik=5UbP7Xj2zNCYWg&pid=ImgRaw&r=0",
     category: {
-      name: "Sports Cars",
+      name: "Classic",
       imageURL:
-        "https://th.bing.com/th/id/R.4e7acec211a711b2669d91a771c0b4ca?rik=1ij3ke4tcnxHcQ&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2016%2f08%2fFree-Cars-Full-HD-Images-1080p.jpg&ehk=IN1J%2f8CvnnGiJh698L6AgrSF8jq83lL9DMc9lb6t3TA%3d&risl=&pid=ImgRaw&r=0",
+        "https://th.bing.com/th/id/R.ddc06286562c6898c1485427eb1cccf1?rik=5UbP7Xj2zNCYWg&pid=ImgRaw&r=0",
     },
   },
   {
     id: uuid(),
-    title: "2022 Genesis GV70: Nominee",
+    title: "BMW i4",
+    price: "70000",
     description:
-      "As luxury brands go, South Korea's Genesis is still in its infancy, having sold its first cars (as an independent marque) only in 2015.",
+      "A sophisticated electric sedan combining luxury and impressive performance.",
+    colors: ["#8B0000", "#2F4F4F", "#2E8B57"],
     imageURL:
-      "https://th.bing.com/th/id/R.4e7acec211a711b2669d91a771c0b4ca?rik=1ij3ke4tcnxHcQ&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2016%2f08%2fFree-Cars-Full-HD-Images-1080p.jpg&ehk=IN1J%2f8CvnnGiJh698L6AgrSF8jq83lL9DMc9lb6t3TA%3d&risl=&pid=ImgRaw&r=0",
-    price: "500000",
-    colors: ["#8B0000", "#2F4F4F"],
+      "https://th.bing.com/th/id/R.869dfe65c1df464d9c751f121b0ea0fb?rik=H8sYLC7afZ6nIQ&pid=ImgRaw&r=0",
     category: {
-      name: "Cars",
+      name: "Electric",
       imageURL:
-        "https://th.bing.com/th/id/R.4e7acec211a711b2669d91a771c0b4ca?rik=1ij3ke4tcnxHcQ&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2016%2f08%2fFree-Cars-Full-HD-Images-1080p.jpg&ehk=IN1J%2f8CvnnGiJh698L6AgrSF8jq83lL9DMc9lb6t3TA%3d&risl=&pid=ImgRaw&r=0",
+        "https://th.bing.com/th/id/R.869dfe65c1df464d9c751f121b0ea0fb?rik=H8sYLC7afZ6nIQ&pid=ImgRaw&r=0",
     },
   },
   {
     id: uuid(),
-    title: "2023 Tesla Model S",
+    title: "McLaren 720S",
+    price: "280000",
     description:
-      "An all-electric luxury sedan, offering industry-leading range and incredible acceleration.",
+      "A high-performance supercar delivering unparalleled speed and precision engineering.",
+    colors: ["#8B0000", "#2F4F4F", "#1E90FF"],
     imageURL:
-      "https://th.bing.com/th/id/R.4e7acec211a711b2669d91a771c0b4ca?rik=1ij3ke4tcnxHcQ&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2016%2f08%2fFree-Cars-Full-HD-Images-1080p.jpg&ehk=IN1J%2f8CvnnGiJh698L6AgrSF8jq83lL9DMc9lb6t3TA%3d&risl=&pid=ImgRaw&r=0",
-    price: "900000",
-    colors: ["#8B0000", "#2F4F4F"],
+      "https://static3.hotcarsimages.com/wordpress/wp-content/uploads/2019/07/feature-luxury-sport-car.jpg",
     category: {
-      name: "Electric Cars",
+      name: "Sports",
       imageURL:
-        "https://th.bing.com/th/id/R.4e7acec211a711b2669d91a771c0b4ca?rik=1ij3ke4tcnxHcQ&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2016%2f08%2fFree-Cars-Full-HD-Images-1080p.jpg&ehk=IN1J%2f8CvnnGiJh698L6AgrSF8jq83lL9DMc9lb6t3TA%3d&risl=&pid=ImgRaw&r=0",
+        "https://static3.hotcarsimages.com/wordpress/wp-content/uploads/2019/07/feature-luxury-sport-car.jpg",
     },
   },
   {
     id: uuid(),
-    title: "2023 Toyota Supra GR",
+    title: "Pontiac GTO",
+    price: "50000",
     description:
-      "A sports car combining modern performance with a classic design.",
+      "A vintage muscle car that stands as a symbol of American automotive history.",
+    colors: ["#8B0000", "#2F4F4F", "#1E90FF"],
     imageURL:
-      "https://th.bing.com/th/id/R.4e7acec211a711b2669d91a771c0b4ca?rik=1ij3ke4tcnxHcQ&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2016%2f08%2fFree-Cars-Full-HD-Images-1080p.jpg&ehk=IN1J%2f8CvnnGiJh698L6AgrSF8jq83lL9DMc9lb6t3TA%3d&risl=&pid=ImgRaw&r=0",
-    price: "700000",
-    colors: ["#FF4500", "#2E8B57"],
+      "https://th.bing.com/th/id/R.ddc06286562c6898c1485427eb1cccf1?rik=5UbP7Xj2zNCYWg&pid=ImgRaw&r=0",
     category: {
-      name: "Sports Cars",
+      name: "Classic",
       imageURL:
-        "https://th.bing.com/th/id/R.4e7acec211a711b2669d91a771c0b4ca?rik=1ij3ke4tcnxHcQ&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2016%2f08%2fFree-Cars-Full-HD-Images-1080p.jpg&ehk=IN1J%2f8CvnnGiJh698L6AgrSF8jq83lL9DMc9lb6t3TA%3d&risl=&pid=ImgRaw&r=0",
+        "https://th.bing.com/th/id/R.ddc06286562c6898c1485427eb1cccf1?rik=5UbP7Xj2zNCYWg&pid=ImgRaw&r=0",
     },
   },
 ];
@@ -219,23 +219,23 @@ export const colors: string[] = [
   "#1E90FF",
 ];
 
-export const categories: ICategory[]= [
-  { 
+export const categories: ICategory[] = [
+  {
     id: uuid(),
-    name: "T-Shirts",
+    name: "Electric",
     imageURL:
-      "https://th.bing.com/th/id/R.6c3ddd4f609acc5e3fff3e13255cfc15?rik=nMtuon3w6BIpiw&riu=http%3a%2f%2finikweb.com%2fwp-content%2fuploads%2f2015%2f02%2ft473kellygreen.jpg&ehk=ngEG5J4NY4mngHySwtGScfJOpm%2bFsWS9P0TPNj15Qww%3d&risl=&pid=ImgRaw&r=0",
+      "https://th.bing.com/th/id/R.869dfe65c1df464d9c751f121b0ea0fb?rik=H8sYLC7afZ6nIQ&pid=ImgRaw&r=0",
   },
   {
     id: uuid(),
-    name: "Hoodies",
+    name: "Sports",
     imageURL:
-      "https://th.bing.com/th/id/R.bc3c1690e4eb8fde44e8860cf9878fa4?rik=QrxRwoGzYGwcNw&riu=http%3a%2f%2fclipartix.com%2fwp-content%2fuploads%2f2016%2f05%2fShirt-shirt-clip-art-designs-free-clipart-images-clipartcow.png&ehk=hADKju7ApeMpde%2fqSOPRTcflBpR1tmwAmJSaP278zWw%3d&risl=&pid=ImgRaw&r=0",
+      "https://static3.hotcarsimages.com/wordpress/wp-content/uploads/2019/07/feature-luxury-sport-car.jpg",
   },
   {
     id: uuid(),
-    name: "Stickers",
+    name: "Classic",
     imageURL:
-      "https://th.bing.com/th/id/OIP.FdxnJ3bW7_kdKOtKEuPeswHaIE?rs=1&pid=ImgDetMain",
+      "https://th.bing.com/th/id/R.ddc06286562c6898c1485427eb1cccf1?rik=5UbP7Xj2zNCYWg&pid=ImgRaw&r=0",
   },
 ];
